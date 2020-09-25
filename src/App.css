@@ -1,38 +1,59 @@
-.App {
+:root {
+  --numberOfRows: 15;
+  --rowHeight: calc(100vh / var(--numberOfRows));
+}
+
+body {
+  border: 0;
+  margin: 0;
+  place-items: center;
+}
+
+.recyclone {
+  display: grid;
+  min-width: 320px;
+  max-width: 460px;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  grid-template-areas: "recycle" "garbage-pile" "bins";
+  grid-template-rows: 1fr auto auto;
+}
+
+.bins,
+.garbage-pile {
+  align-self: end;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: space-between;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.bins {
+  grid-area: bins;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.bins div,
+.garbage-pile div {
+  display: grid;
+  background: chocolate;
+  height: var(--rowHeight);
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.bins div:not(:last-child) {
+  border-right: 1px solid white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.garbage-pile {
+  grid-area: garbage-pile;
+}
+
+.garbage-pile div {
+  background: whitesmoke;
+}
+
+.recycle {
+  height: 1fr;
+  background-color: cornflowerblue;
 }
