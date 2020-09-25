@@ -3,7 +3,7 @@ import './App.css';
 
 function App() {
   return (
-    <main className="recyclone">
+    <>
       <section className="recycle">
 
       </section>
@@ -29,7 +29,7 @@ function App() {
         <div>bin4</div>
         <div>bin5</div>
       </section>
-    </main>
+    </>
   );
 }
 
